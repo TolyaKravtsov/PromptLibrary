@@ -40,3 +40,8 @@ logs/
 dist/
 build/
 out/
+
+.serena
+.claude
+
+

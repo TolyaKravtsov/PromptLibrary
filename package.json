@@ -1,0 +1,9 @@
+{
+  "name": "prompt-library",
+  "version": "0.1.0",
+  "description": "Anatoli's personal library of AI agents, skills, and prompts for Claude Code",
+  "private": true,
+  "scripts": {
+    "install-skills": "bash scripts/install-skills.sh"
+  }
+}

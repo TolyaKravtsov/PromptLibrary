@@ -49,16 +49,60 @@ Each agent definition should include:
 - **Examples** — at least one worked example
 
 ### Skill files (`SKILL.md`)
-Follow the standard Claude Code skill format:
+
+Each skill is a **folder** named in `kebab-case` containing a `SKILL.md` file. The file must be named exactly `SKILL.md` (case-sensitive). Never put a `README.md` inside the skill folder — documentation goes in `references/` or the body of `SKILL.md`.
+
+**Minimal required format:**
 ```markdown
 ---
-name: skill-name
-description: Brief description used for triggering (be specific about when to use)
+name: skill-name-in-kebab-case
+description: [What it does] + [When to use it]. Include specific trigger phrases users would say.
 ---
 
 # Skill Name
 
-[Full instructions for Claude to follow when this skill is invoked]
+## Instructions
+
+### Step 1: [First Major Step]
+Clear explanation of what happens.
+```
+
+**YAML frontmatter rules:**
+- `name`: kebab-case only, no spaces or capitals, must match folder name
+- `description`: MUST include both WHAT the skill does AND WHEN to trigger it (trigger phrases). Under 1024 chars. No XML angle brackets (`<` or `>`).
+- Optional: `license`, `compatibility`, `metadata` (author, version, etc.)
+- Forbidden: XML tags, skills named with "claude" or "anthropic" prefix
+
+**Description formula:**
+```
+[What it does]. Use when user says "[phrase1]", "[phrase2]", or asks to [action].
+```
+
+Good:
+```yaml
+description: Runs quality checks then commits changes with conventional messages. Use when user says "commit", "commit my changes", or wants to save work to git.
+```
+
+Bad:
+```yaml
+description: Helps with projects.          # too vague, no trigger
+description: Implements the git workflow.  # technical, no user phrases
+```
+
+**Instructions best practices:**
+- Be specific and actionable — include exact commands to run, not vague directives
+- Include error handling for common failures
+- Use `## Important` or `## CRITICAL` headers for must-follow rules
+- Move detailed docs to `references/` and link to them — keep `SKILL.md` under 5,000 words
+- Progressive disclosure: core steps in body, edge cases and references in linked files
+
+**Folder structure (optional extras):**
+```
+skill-name/
+├── SKILL.md          # Required
+├── scripts/          # Optional: executable code
+├── references/       # Optional: detailed docs loaded on demand
+└── assets/           # Optional: templates, examples
 ```
 
 ### Prompt templates

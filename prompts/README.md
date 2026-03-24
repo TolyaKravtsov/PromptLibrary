@@ -2,6 +2,12 @@
 
 Reusable prompt snippets and templates. Include in agent/skill definitions or system prompts via copy-paste or reference.
 
+## Templates
+
+| File | Description |
+|------|-------------|
+| `nextjs-app-claude-md.md` | Generic CLAUDE.md template for Next.js App Router projects |
+
 ## Design
 
 | File | Description |

@@ -1,6 +1,6 @@
 # Prompt Library
 
-Anatoli's personal library of reusable AI building blocks for Claude Code — skills, agents, and prompt templates. Single source of truth for everything that makes Claude smarter and more consistent across projects.
+Library of reusable AI building blocks for Claude Code — skills, agents, and prompt templates. Single source of truth for everything that makes Claude smarter and more consistent across projects.
 
 ---
 
